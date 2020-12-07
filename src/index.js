@@ -66,17 +66,15 @@ export const ReactNavbar = ({ color, logo, menu, social }) => {
                                 <Tween from={{ height: "150px" }} to={{ height: "80px", background: background }}>
                                     <div className={styles.header}>
                                         <div className={styles.navLogo}>
-                                            <Router>
-                                                <Link to="">
-                                                    <div className="logo-container">
-                                                        <Timeline totalProgress={progress} paused>
-                                                            <Tween from={{ height: "150px" }} to={{ height: "70px" }}>
-                                                                <img className={styles.LogoImg} src={logoUrl} alt="logo" />
-                                                            </Tween>
-                                                        </Timeline>
-                                                    </div>
-                                                </Link>
-                                            </Router>
+                                            <Link to="">
+                                                <div className="logo-container">
+                                                    <Timeline totalProgress={progress} paused>
+                                                        <Tween from={{ height: "150px" }} to={{ height: "70px" }}>
+                                                            <img className={styles.LogoImg} src={logoUrl} alt="logo" />
+                                                        </Tween>
+                                                    </Timeline>
+                                                </div>
+                                            </Link>
                                         </div>
 
                                         <div className={styles.navLinks}>
