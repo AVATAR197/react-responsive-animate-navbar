@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Controller, Scene } from "react-scrollmagic";
 import { Tween, Timeline } from "react-gsap";
-import { Link, NavLink } from "react-router-dom";
+import { Link, NavLink, BrowserRouter as Router } from "react-router-dom";
 import styles from "./styles.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { library } from "@fortawesome/fontawesome-svg-core";
@@ -66,25 +66,34 @@ export const ReactNavbar = ({ color, logo, menu, social }) => {
                                 <Tween from={{ height: "150px" }} to={{ height: "80px", background: background }}>
                                     <div className={styles.header}>
                                         <div className={styles.navLogo}>
-                                            <Link to="">
-                                                <div className="logo-container">
-                                                    <Timeline totalProgress={progress} paused>
-                                                        <Tween from={{ height: "150px" }} to={{ height: "70px" }}>
-                                                            <img className={styles.LogoImg} src={logoUrl} alt="logo" />
-                                                        </Tween>
-                                                    </Timeline>
-                                                </div>
-                                            </Link>
+                                            <Router>
+                                                <Link to="">
+                                                    <div className="logo-container">
+                                                        <Timeline totalProgress={progress} paused>
+                                                            <Tween from={{ height: "150px" }} to={{ height: "70px" }}>
+                                                                <img className={styles.LogoImg} src={logoUrl} alt="logo" />
+                                                            </Tween>
+                                                        </Timeline>
+                                                    </div>
+                                                </Link>
+                                            </Router>
                                         </div>
 
                                         <div className={styles.navLinks}>
                                             <ul>
                                                 {navLinks.map((link, i) => (
-                                                    <li key={i}>
-                                                        <NavLink onClick={link.onClick} exact to={link.to} activeClassName={styles.home}>
-                                                            {link.name}
-                                                        </NavLink>
-                                                    </li>
+                                                    <Router>
+                                                        <li key={i}>
+                                                            <NavLink
+                                                                onClick={link.onClick}
+                                                                exact
+                                                                to={link.to}
+                                                                activeClassName={styles.home}
+                                                            >
+                                                                {link.name}
+                                                            </NavLink>
+                                                        </li>
+                                                    </Router>
                                                 ))}
                                             </ul>
                                         </div>

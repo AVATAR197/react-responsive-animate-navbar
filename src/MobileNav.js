@@ -1,5 +1,5 @@
 import React, { useRef, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, BrowserRouter as Router } from "react-router-dom";
 import { library } from "@fortawesome/fontawesome-svg-core";
 import { fab, faTwitter } from "@fortawesome/free-brands-svg-icons";
 import { faBars } from "@fortawesome/free-solid-svg-icons";
@@ -49,9 +49,11 @@ const MobileNav = ({ width, logoUrl, background, navLinks, socialIcon }) => {
             >
                 <ul>
                     {navLinks.map((link, i) => (
-                        <li key={i}>
-                            <Link to={link.to}>{link.name}</Link>
-                        </li>
+                        <Router>
+                            <li key={i}>
+                                <Link to={link.to}>{link.name}</Link>
+                            </li>
+                        </Router>
                     ))}
                 </ul>
                 {width < 700 ? (
